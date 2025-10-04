@@ -33,7 +33,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const register = async (data: RegisterData): Promise<{ success: boolean; message: string }> => {
     try {
-      const response = await axios.post("http://3.139.102.234:5000/api/maestros/register", data);
+      const response = await axios.post("http://18.221.245.16 :5000/api/maestros/register", data);
       
       // Si el registro es exitoso, hacer login automático
       try {
@@ -55,14 +55,14 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const login = async (data: LoginData): Promise<Maestro> => {
     try {
-      const res = await axios.post("http://3.139.102.234:5000/api/maestros/login", data);
+      const res = await axios.post("http://18.221.245.16 :5000/api/maestros/login", data);
       const { token } = res.data;
       
       setToken(token);
       localStorage.setItem('token', token);
 
       // Obtener datos del usuario
-      const userRes = await axios.get("http://3.139.102.234:5000/api/maestros/me", {
+      const userRes = await axios.get("http://18.221.245.16 :5000/api/maestros/me", {
         headers: { Authorization: `Bearer ${token}` },
       });
       
